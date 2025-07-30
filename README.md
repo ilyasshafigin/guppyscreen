@@ -89,6 +89,16 @@ ssh into your K1/Max and run the follwow command:
 
 Open for feature requests.
 
+## Changes in fork
+
+- Added android project, no need to sweetch to 'android' branch
+- Changes from [fork by neonman63](https://github.com/neonman63/guppyscreen)
+  - The fonts have been rebuilt — now using NotoSans-Medium, with subpixel smoothing enabled, and Cyrillic is supported.
+  - The extrusion values on the Extrude screen have been adjusted to more practical, real-life settings.
+  - Fixed the issue where the file status was being cut off by the bottom buttons on the Print panel.
+  - Fixed the dropdown list for Display sleep in Guppy settings.
+  - The build includes a fix for filament tracking in Spoolman, and USB flash drives should now work correctly.
+
 ## Documentation
 You can find various Guppy Screen documents [here](https://ballaswag.github.io/docs/guppyscreen/configuration/).
 
