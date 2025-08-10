@@ -3,6 +3,8 @@
 
 #include "hv/json.hpp"
 
+#include <mutex>
+
 using json = nlohmann::json;
 
 class NotifyConsumer {

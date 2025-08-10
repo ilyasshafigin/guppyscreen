@@ -14,7 +14,8 @@ LV_IMG_DECLARE(load_filament_img);
 LV_IMG_DECLARE(extruder);
 LV_IMG_DECLARE(cooldown_img);
 
-ExtruderPanel::ExtruderPanel(KWebSocketClient& websocket_client,
+ExtruderPanel::ExtruderPanel(
+    KWebSocketClient& websocket_client,
     std::mutex& lock,
     Numpad& numpad,
     SpoolmanPanel& sm)

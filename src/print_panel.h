@@ -9,6 +9,8 @@
 #include "print_status_panel.h"
 #include "tree.h"
 
+#include <mutex>
+
 class PrintPanel : public NotifyConsumer {
 public:
     PrintPanel(KWebSocketClient& ws, std::mutex& lv_lock, PrintStatusPanel& ps);

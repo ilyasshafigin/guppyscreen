@@ -10,6 +10,8 @@
 #include "spoolman_panel.h"
 #include "websocket_client.h"
 
+#include <mutex>
+
 class ExtruderPanel : public NotifyConsumer {
 public:
     ExtruderPanel(KWebSocketClient& ws, std::mutex& l, Numpad& np, SpoolmanPanel& sm);

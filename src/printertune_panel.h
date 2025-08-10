@@ -13,6 +13,7 @@
 #include "lvgl/lvgl.h"
 
 #include <mutex>
+
 class PrinterTunePanel {
 public:
     PrinterTunePanel(KWebSocketClient& c, std::mutex& l, lv_obj_t* parent, FineTunePanel&);

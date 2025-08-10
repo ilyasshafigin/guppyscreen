@@ -1,9 +1,10 @@
 #ifndef __STATE_H__
 #define __STATE_H__
 
+#include "notify_consumer.h"
+
 #include <mutex>
 #include <vector>
-#include "notify_consumer.h"
 
 class State : public NotifyConsumer {
 private:
