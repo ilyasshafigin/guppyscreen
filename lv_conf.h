@@ -699,11 +699,11 @@ extern uint32_t custom_tick_get(void);
 /*Music player demo*/
 #define LV_USE_DEMO_MUSIC       0
 #if LV_USE_DEMO_MUSIC
-# define LV_DEMO_MUSIC_SQUARE       0
-# define LV_DEMO_MUSIC_LANDSCAPE    0
-# define LV_DEMO_MUSIC_ROUND        0
-# define LV_DEMO_MUSIC_LARGE        0
-# define LV_DEMO_MUSIC_AUTO_PLAY    0
+#define LV_DEMO_MUSIC_SQUARE       0
+#define LV_DEMO_MUSIC_LANDSCAPE    0
+#define LV_DEMO_MUSIC_ROUND        0
+#define LV_DEMO_MUSIC_LARGE        0
+#define LV_DEMO_MUSIC_AUTO_PLAY    0
 #endif
 
 /*--END OF LV_CONF_H--*/
@@ -824,8 +824,8 @@ extern uint32_t custom_tick_get(void);
  *It removes the need to manually update the tick with `lv_tick_inc()`)*/
 #define LV_TICK_CUSTOM     0
 #if LV_TICK_CUSTOM
-#define LV_TICK_CUSTOM_INCLUDE  "Arduino.h"         /*Header for the system time function*/
-#define LV_TICK_CUSTOM_SYS_TIME_EXPR (millis())     /*Expression evaluating to current system time in ms*/
+    #define LV_TICK_CUSTOM_INCLUDE  "Arduino.h"         /*Header for the system time function*/
+    #define LV_TICK_CUSTOM_SYS_TIME_EXPR (millis())     /*Expression evaluating to current system time in ms*/
 #endif   /*LV_TICK_CUSTOM*/
 
 /*Default Dot Per Inch. Used to initialize default sizes such as widgets sized, style paddings.
@@ -904,21 +904,21 @@ e.g. "stm32f769xx.h" or "stm32f429xx.h"*/
  *LV_LOG_LEVEL_ERROR       Only critical issue, when the system may fail
  *LV_LOG_LEVEL_USER        Only logs added by the user
  *LV_LOG_LEVEL_NONE        Do not log anything*/
-#  define LV_LOG_LEVEL    LV_LOG_LEVEL_WARN
+#define LV_LOG_LEVEL    LV_LOG_LEVEL_WARN
 
 /*1: Print the log with 'printf';
  *0: User need to register a callback with `lv_log_register_print_cb()`*/
-#  define LV_LOG_PRINTF   1
+#define LV_LOG_PRINTF   1
 
 /*Enable/disable LV_LOG_TRACE in modules that produces a huge number of logs*/
-#  define LV_LOG_TRACE_MEM            1
-#  define LV_LOG_TRACE_TIMER          1
-#  define LV_LOG_TRACE_INDEV          1
-#  define LV_LOG_TRACE_DISP_REFR      1
-#  define LV_LOG_TRACE_EVENT          1
-#  define LV_LOG_TRACE_OBJ_CREATE     1
-#  define LV_LOG_TRACE_LAYOUT         1
-#  define LV_LOG_TRACE_ANIM           1
+#define LV_LOG_TRACE_MEM            1
+#define LV_LOG_TRACE_TIMER          1
+#define LV_LOG_TRACE_INDEV          1
+#define LV_LOG_TRACE_DISP_REFR      1
+#define LV_LOG_TRACE_EVENT          1
+#define LV_LOG_TRACE_OBJ_CREATE     1
+#define LV_LOG_TRACE_LAYOUT         1
+#define LV_LOG_TRACE_ANIM           1
 
 #endif  /*LV_USE_LOG*/
 
@@ -1054,10 +1054,10 @@ e.g. "stm32f769xx.h" or "stm32f429xx.h"*/
 /*Optionally declare custom fonts here.
  *You can use these fonts as default font too and they will be available globally.
  *E.g. #define LV_FONT_CUSTOM_DECLARE   LV_FONT_DECLARE(my_font_1) LV_FONT_DECLARE(my_font_2)*/
-#define LV_FONT_CUSTOM_DECLARE
+#define LV_FONT_CUSTOM_DECLARE LV_FONT_DECLARE(notosemi_12) LV_FONT_DECLARE(notosemi_14) LV_FONT_DECLARE(notosemi_16) LV_FONT_DECLARE(notosemi_20)
 
 /*Always set a default font*/
-#define LV_FONT_DEFAULT &lv_font_montserrat_16
+#define LV_FONT_DEFAULT &notosemi_20
 
 /*Enable handling large font and/or fonts with a lot of characters.
  *The limit depends on the font size, font face and bpp.
@@ -1140,22 +1140,21 @@ e.g. "stm32f769xx.h" or "stm32f429xx.h"*/
 
 #define LV_USE_CHECKBOX     1
 
-
 #define LV_USE_DROPDOWN     1   /*Requires: lv_label*/
 
 #define LV_USE_IMG          1   /*Requires: lv_label*/
 
 #define LV_USE_LABEL        1
 #if LV_USE_LABEL
-#  define LV_LABEL_TEXT_SELECTION         1   /*Enable selecting text of the label*/
-#  define LV_LABEL_LONG_TXT_HINT    1   /*Store some extra info in labels to speed up drawing of very long texts*/
+#define LV_LABEL_TEXT_SELECTION         1   /*Enable selecting text of the label*/
+#define LV_LABEL_LONG_TXT_HINT    1   /*Store some extra info in labels to speed up drawing of very long texts*/
 #endif
 
 #define LV_USE_LINE         1
 
 #define LV_USE_ROLLER       1   /*Requires: lv_label*/
 #if LV_USE_ROLLER
-#  define LV_ROLLER_INF_PAGES       7   /*Number of extra "pages" when the roller is infinite*/
+#define LV_ROLLER_INF_PAGES       7   /*Number of extra "pages" when the roller is infinite*/
 #endif
 
 #define LV_USE_SLIDER       1   /*Requires: lv_bar*/
@@ -1178,16 +1177,16 @@ e.g. "stm32f769xx.h" or "stm32f429xx.h"*/
  *----------*/
 #define LV_USE_CALENDAR     1
 #if LV_USE_CALENDAR
-# define LV_CALENDAR_WEEK_STARTS_MONDAY 0
-# if LV_CALENDAR_WEEK_STARTS_MONDAY
-#  define LV_CALENDAR_DEFAULT_DAY_NAMES {"Mo", "Tu", "We", "Th", "Fr", "Sa", "Su"}
-# else
-#  define LV_CALENDAR_DEFAULT_DAY_NAMES {"Su", "Mo", "Tu", "We", "Th", "Fr", "Sa"}
-# endif
+#define LV_CALENDAR_WEEK_STARTS_MONDAY 0
+#if LV_CALENDAR_WEEK_STARTS_MONDAY
+#define LV_CALENDAR_DEFAULT_DAY_NAMES {"Mo", "Tu", "We", "Th", "Fr", "Sa", "Su"}
+#else
+#define LV_CALENDAR_DEFAULT_DAY_NAMES {"Su", "Mo", "Tu", "We", "Th", "Fr", "Sa"}
+#endif
 
-# define LV_CALENDAR_DEFAULT_MONTH_NAMES {"January", "February", "March",  "April", "May",  "June", "July", "August", "September", "October", "November", "December"}
-# define LV_USE_CALENDAR_HEADER_ARROW       1
-# define LV_USE_CALENDAR_HEADER_DROPDOWN    1
+#define LV_CALENDAR_DEFAULT_MONTH_NAMES {"January", "February", "March",  "April", "May",  "June", "July", "August", "September", "October", "November", "December"}
+#define LV_USE_CALENDAR_HEADER_ARROW       1
+#define LV_USE_CALENDAR_HEADER_DROPDOWN    1
 #endif  /*LV_USE_CALENDAR*/
 
 #define LV_USE_CHART        1
@@ -1219,7 +1218,7 @@ e.g. "stm32f769xx.h" or "stm32f429xx.h"*/
 #define LV_USE_SPAN         1
 #if LV_USE_SPAN
 /*A line text can contain maximum num of span descriptor */
-#  define LV_SPAN_SNIPPET_STACK_SIZE   64
+#define LV_SPAN_SNIPPET_STACK_SIZE   64
 #endif
 
 /*-----------
@@ -1230,17 +1229,17 @@ e.g. "stm32f769xx.h" or "stm32f429xx.h"*/
 #if LV_USE_THEME_DEFAULT
 
 /*0: Light mode; 1: Dark mode*/
-# define LV_THEME_DEFAULT_DARK     1
+#define LV_THEME_DEFAULT_DARK     1
 
 /*1: Enable grow on press*/
-# define LV_THEME_DEFAULT_GROW              1
+#define LV_THEME_DEFAULT_GROW              1
 
 /*Default transition time in [ms]*/
-# define LV_THEME_DEFAULT_TRANSITON_TIME    80
+#define LV_THEME_DEFAULT_TRANSITON_TIME    80
 #endif /*LV_USE_THEME_DEFAULT*/
 
 /*An very simple them that is a good starting point for a custom theme*/
- #define LV_USE_THEME_BASIC    1
+#define LV_USE_THEME_BASIC    1
 
 /*A theme designed for monochrome displays*/
 #define LV_USE_THEME_MONO       1
@@ -1264,32 +1263,32 @@ e.g. "stm32f769xx.h" or "stm32f429xx.h"*/
 /*API for fopen, fread, etc*/
 #define LV_USE_FS_STDIO 1
 #if LV_USE_FS_STDIO
-    #define LV_FS_STDIO_LETTER 'A'     /*Set an upper cased letter on which the drive will accessible (e.g. 'A')*/
-    #define LV_FS_STDIO_PATH ""         /*Set the working directory. File/directory paths will be appended to it.*/
-    #define LV_FS_STDIO_CACHE_SIZE 0    /*>0 to cache this number of bytes in lv_fs_read()*/
+#define LV_FS_STDIO_LETTER 'A'     /*Set an upper cased letter on which the drive will accessible (e.g. 'A')*/
+#define LV_FS_STDIO_PATH ""         /*Set the working directory. File/directory paths will be appended to it.*/
+#define LV_FS_STDIO_CACHE_SIZE 0    /*>0 to cache this number of bytes in lv_fs_read()*/
 #endif
 
 /*API for open, read, etc*/
 #define LV_USE_FS_POSIX 0
 #if LV_USE_FS_POSIX
-    #define LV_FS_POSIX_LETTER '\0'     /*Set an upper cased letter on which the drive will accessible (e.g. 'A')*/
-    #define LV_FS_POSIX_PATH ""         /*Set the working directory. File/directory paths will be appended to it.*/
-    #define LV_FS_POSIX_CACHE_SIZE 0    /*>0 to cache this number of bytes in lv_fs_read()*/
+#define LV_FS_POSIX_LETTER '\0'     /*Set an upper cased letter on which the drive will accessible (e.g. 'A')*/
+#define LV_FS_POSIX_PATH ""         /*Set the working directory. File/directory paths will be appended to it.*/
+#define LV_FS_POSIX_CACHE_SIZE 0    /*>0 to cache this number of bytes in lv_fs_read()*/
 #endif
 
 /*API for CreateFile, ReadFile, etc*/
 #define LV_USE_FS_WIN32 0
 #if LV_USE_FS_WIN32
-    #define LV_FS_WIN32_LETTER '\0'     /*Set an upper cased letter on which the drive will accessible (e.g. 'A')*/
-    #define LV_FS_WIN32_PATH ""         /*Set the working directory. File/directory paths will be appended to it.*/
-    #define LV_FS_WIN32_CACHE_SIZE 0    /*>0 to cache this number of bytes in lv_fs_read()*/
+#define LV_FS_WIN32_LETTER '\0'     /*Set an upper cased letter on which the drive will accessible (e.g. 'A')*/
+#define LV_FS_WIN32_PATH ""         /*Set the working directory. File/directory paths will be appended to it.*/
+#define LV_FS_WIN32_CACHE_SIZE 0    /*>0 to cache this number of bytes in lv_fs_read()*/
 #endif
 
 /*API for FATFS (needs to be added separately). Uses f_open, f_read, etc*/
 #define LV_USE_FS_FATFS 0
 #if LV_USE_FS_FATFS
-    #define LV_FS_FATFS_LETTER '\0'     /*Set an upper cased letter on which the drive will accessible (e.g. 'A')*/
-    #define LV_FS_FATFS_CACHE_SIZE 0    /*>0 to cache this number of bytes in lv_fs_read()*/
+#define LV_FS_FATFS_LETTER '\0'     /*Set an upper cased letter on which the drive will accessible (e.g. 'A')*/
+#define LV_FS_FATFS_CACHE_SIZE 0    /*>0 to cache this number of bytes in lv_fs_read()*/
 #endif
 
 /*PNG decoder library*/

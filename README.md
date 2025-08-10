@@ -55,7 +55,7 @@ wget -O - https://raw.githubusercontent.com/ballaswag/guppyscreen/main/installer
 ```
 
 ### Android
-Guppy Screen works on Android! Download and try with the latest [APK](https://github.com/ballaswag/guppyscreen/releases/latest/download/app-release.apk).  
+Guppy Screen works on Android! Download and try with the latest [APK](https://github.com/ballaswag/guppyscreen/releases/latest/download/app-release.apk).
   
 <img src="https://github.com/ballaswag/guppyscreen/assets/145094472/d0437cd6-9b82-470f-8889-c4a5b74bfa6e" alt="guppyscreen on android" width="600" />
 
@@ -91,13 +91,22 @@ Open for feature requests.
 
 ## Changes in fork
 
-- Added android project, no need to sweetch to 'android' branch
+- Added android project, no need to switch to 'android' branch
 - Changes from [fork by neonman63](https://github.com/neonman63/guppyscreen)
   - The fonts have been rebuilt — now using NotoSans-Medium, with subpixel smoothing enabled, and Cyrillic is supported.
   - The extrusion values on the Extrude screen have been adjusted to more practical, real-life settings.
   - Fixed the issue where the file status was being cut off by the bottom buttons on the Print panel.
   - Fixed the dropdown list for Display sleep in Guppy settings.
   - The build includes a fix for filament tracking in Spoolman, and USB flash drives should now work correctly.
+- Major rework [PR](https://github.com/ballaswag/guppyscreen/pull/152)
+  - Fixed custom tick bug that caused a reset every 71.58 minutes due to uint32_t wraparound.
+  - Added support for temperature-controlled fans.
+  - Improved movement logic: ensures absolute mode is restored after relative moves to prevent inconsistent behavior and crashes.
+  - Auto-refresh file list when print panel is brought to foreground.
+  - Added speed control (in addition to distance) for the homing panel.
+  - More logical screen timeout durations.
+  - UI/UX Improvements.
+  - Code Cleanup.
 
 ## Documentation
 You can find various Guppy Screen documents [here](https://ballaswag.github.io/docs/guppyscreen/configuration/).
